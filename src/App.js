@@ -24,8 +24,8 @@ function App() {
         component="h4">
         Choose upto 4
       </Typography>
-      <Grid container spacing={2} m={2} p={2}>
-        <Grid item xs={12} md={6} lg={8}>
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={6} lg={6}>
           <Watches></Watches>
         </Grid>
         <Grid item xs={12} md={6} lg={4}>

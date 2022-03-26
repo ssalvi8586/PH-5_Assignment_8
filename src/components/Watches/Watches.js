@@ -21,12 +21,15 @@ const Watches = () => {
         setCart([]);
         setChoosenWatch([]);
     }
-    
+
+    const [cartKey, setCartKey]=useState(0);
+
     const handleAddToCart = (watch) => {
         const found = cart.find(element => element.id == watch.id);
         if(!found){
             const newCart=[...cart,watch];
             setCart(newCart);
+            setCartKey(watch.id);
         }
     }
 
@@ -99,8 +102,8 @@ const Watches = () => {
             </Grid>
             </Grid>
             <Grid item xs={12} md={6} lg={3}>
-                <Cart 
-                
+                <Cart
+                key={cartKey}
                 cart={cart}
                 handleChooseAgain={handleChooseAgain}
                 handleChooseOne={handleChooseOne}

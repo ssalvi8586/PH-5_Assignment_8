@@ -2,17 +2,32 @@ import { Grid } from '@material-ui/core';
 import React, { useState } from 'react';
 
 import Cart from '../Cart/Cart';
-import CartItem from '../CartItem/CartItem';
 import Watch from '../Watch/Watch';
 import './watches.css';
 
 const Watches = () => {
 
+    
     const [cart, setCart]=useState([]);
+    const [choosenWatch, setChoosenWatch] = useState({})
 
+    const handleChooseOne = () => {
+        const length = cart.length;
+        const randomId = [Math.floor(Math.random() * length)];
+        setChoosenWatch(cart[randomId]);
+    }
+
+    const handleChooseAgain = () => {
+        setCart([]);
+        setChoosenWatch([]);
+    }
+    
     const handleAddToCart = (watch) => {
-        const newCart=[...cart,watch];
-        setCart(newCart);
+        const found = cart.find(element => element.id == watch.id);
+        if(!found){
+            const newCart=[...cart,watch];
+            setCart(newCart);
+        }
     }
 
     const watchesData = [
@@ -84,7 +99,12 @@ const Watches = () => {
             </Grid>
             </Grid>
             <Grid item xs={12} md={6} lg={3}>
-                <Cart cart={cart} key={cart.id}></Cart>
+                <Cart 
+                
+                cart={cart}
+                handleChooseAgain={handleChooseAgain}
+                handleChooseOne={handleChooseOne}
+                choosenWatch={choosenWatch}></Cart>
             </Grid>
         </Grid>
   </div>

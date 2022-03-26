@@ -25,6 +25,13 @@ function App() {
       </Typography>
       </header>
       <Watches></Watches>
+      <div>
+        <hr/>
+        <h2>Ans to the questions</h2>
+        <hr/>
+        <h4>How react works</h4>
+        <p></p>
+      </div>
     </div>
   );
 }

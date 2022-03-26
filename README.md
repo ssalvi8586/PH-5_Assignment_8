@@ -1,6 +1,6 @@
 #Project Name: Get a Watch
 
-##Live site: [Click Here](https://pages.github.com/).
+##Live site: [Click Here](https://celebrated-lokum-640dc1.netlify.app/).
 
 # Getting Started with Create React App
 

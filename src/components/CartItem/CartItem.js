@@ -1,10 +1,11 @@
 import React from 'react';
 
-const CartItem = () => {
+const CartItem = (props) => {
+    const {item} = props;
     return (
-        <div>
-            
-        </div>
+        <p style={{textAlign: "center"}}>
+            {item.title}
+        </p>
     );
 };
 

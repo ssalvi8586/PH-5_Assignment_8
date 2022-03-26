@@ -1,9 +1,16 @@
 import React from 'react';
 
-const Cart = () => {
+import { Button } from '@material-ui/core';
+import CartItem from '../CartItem/CartItem';
+
+const Cart = (props) => {
+    const {cart} = props;
     return (
-        <div>
+        <div style={{display: "flex", justifyContent: "center",  flexDirection: "column" }}>
             <h4>Selected Items:</h4>
+            {cart.map(item=><CartItem item={item}></CartItem>)}
+            <Button variant="outlined" color='primary'>Choose one</Button>
+            <Button variant="outlined" color='secondary'>Choose again</Button>
         </div>
     );
 };

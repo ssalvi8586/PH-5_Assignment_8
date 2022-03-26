@@ -1,10 +1,10 @@
 import { Grid, Card, Button, CardMedia, CardContent, Typography, CardActions } from '@material-ui/core';
-import { IconButton } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import React from 'react';
 
 const Watch = (props) => {
     const {title, url, price } = props.watch;
+    const {handleClick}=props;
     
     return (
         <Grid item xs={12} md={6} lg={4}>
@@ -19,14 +19,14 @@ const Watch = (props) => {
         <Typography gutterBottom variant="h5" component="div">
           {title}
         </Typography>
-        <Typography variant="body2" color="text.secondary">{price}
+        <Typography variant="body2">{price}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Add to cart
-        <IconButton color="primary" aria-label="add to shopping cart">
+        <Button onClick={()=>handleClick(props.watch)} size="small" color='primary'>Add to cart
+        
         <AddShoppingCartIcon />
-      </IconButton>
+      
         </Button>
       </CardActions>
     </Card>

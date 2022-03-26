@@ -1,11 +1,20 @@
 import { Grid } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
 
 import Cart from '../Cart/Cart';
+import CartItem from '../CartItem/CartItem';
 import Watch from '../Watch/Watch';
 import './watches.css';
 
 const Watches = () => {
+
+    const [cart, setCart]=useState([]);
+
+    const handleAddToCart = (watch) => {
+        const newCart=[...cart,watch];
+        setCart(newCart);
+    }
+
     const watchesData = [
         {
           "id": 1,
@@ -69,12 +78,13 @@ const Watches = () => {
             <Grid item xs={12} md={6} lg={9}>
             <Grid container spacing={5}>
                 {
-                    watchesData.map(watch=><Watch watch={watch} key={watch.id}></Watch>)
+                    watchesData.map(watch=><Watch watch={watch} key={watch.id}
+                    handleClick={handleAddToCart}></Watch>)
                 }
             </Grid>
             </Grid>
             <Grid item xs={12} md={6} lg={3}>
-                <Cart></Cart>
+                <Cart cart={cart} key={cart.id}></Cart>
             </Grid>
         </Grid>
   </div>
